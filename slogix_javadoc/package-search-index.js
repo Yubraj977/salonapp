@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"edu.secourse"},{"l":"edu.secourse.controller"},{"l":"edu.secourse.model"},{"l":"edu.secourse.service"},{"l":"edu.secourse.view"}];updateSearchResults();
