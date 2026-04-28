@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8116680-2335-4117-9266-b2c630d7dcaa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/service/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/model/Appointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/secourse/service/AppointmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/secourse/model/AppointmentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,18 +54,23 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "own-created",
+    "git-widget-placeholder": "yub/main__java__file",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/yubraj/Developer/salonapp/salonapp",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/Users/freddie/Documents/SB_Spring2026/CSC527/project/salonapp/salonapp/src/main/java/edu/secourse/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
