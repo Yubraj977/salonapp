@@ -1,4 +1,4 @@
-package edu.secourse.service;
+package edu.secourse.model;
 
 import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
@@ -71,21 +71,21 @@ class AppointmentTest {
 
     @Test
     void testEqualsNull() {
-        Appointment appt = new Appointment(1, 2 LocalDateTime.now());
+        Appointment appt = new Appointment(1, 2, LocalDateTime.now());
 
         assertNotEquals(appt, null);
     }
 
     @Test
     void testEqualsDifferentType() {
-        Appointment appt = new Appointment(1, 2 LocalDateTime.now());
+        Appointment appt = new Appointment(1, 2, LocalDateTime.now());
 
         assertNotEquals(appt, "not an appointment");
     }
 
     @Test
     void testHashCodeConsistency() {
-        Appointment appt = new Appointment(1,2 LocalDateTime.now());
+        Appointment appt = new Appointment(1,2, LocalDateTime.now());
 
         int hash1 = appt.hashCode();
         int hash2 = appt.hashCode();

@@ -1,4 +1,4 @@
-package edu.secourse.service;
+package edu.secourse.model;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -19,6 +19,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Appointment {
     /**Counter for unique appointment ID's */
     private static final AtomicInteger counter = new AtomicInteger(0);
+    private final int customerId;
+    private LocalDateTime startDateTime;
 
     /**Appointment identifier */
     private int appointmentId;
@@ -68,7 +70,7 @@ public class Appointment {
         if (startDateTime == null) {
             throw new IllegalArgumentException("Date/Time can not be null");
         }
-        this.getStartDateTime = startDateTime;
+        this.startDateTime = startDateTime;
     }
 
     /**Appointment Cancel */
@@ -89,7 +91,7 @@ public class Appointment {
 
     @Override
     public String toString() {
-        reutnr "Appointment{" +
+        return  "Appointment{" +
             "appointmentId =" + appointmentId +
             ", customerId=" + customerId +
             ", stylistId=" + stylistId +
