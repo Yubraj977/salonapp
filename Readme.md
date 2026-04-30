@@ -6,7 +6,7 @@
                                                                                                                                                                                                                
   ## Features                                                                                                                                                                                                  
   - User management (Admin, Stylist, Customer)
-  - Appointment scheduling and cancellation                                                                                                                                                                    
+  - Appointment scheduling and cancellation                                                                                               
   - Secure BCrypt password hashing
   - Role-based access                                                                                                                                                                                          
    
@@ -24,6 +24,9 @@
                                                                                                                                                                                                                
   Javadoc
                                                                                                                                                                                                                
+
+---
+```
   https://Yubraj977.github.io/salonapp/                                                                                                                                                                        
    
   Authors                                                                                                                                                                                                      
@@ -32,8 +35,12 @@
   - Yousuf
   - Frederick
   - Abdul
-  - Alex
-  ---
+- Alex
 
-## Screenshots
+## Our App Demo
 
+  <img width="1362" height="369" alt="Screenshot 2026-04-30 at 3 45 47 PM" src="https://github.com/user-attachments/assets/282a813e-d6bd-4899-addc-a474bd1cb97d" />
+<img width="1108" height="900" alt="Screenshot 2026-04-30 at 3 47 27 PM" src="https://github.com/user-attachments/assets/b2cbd402-a208-4fd3-80dc-d47a94320bdf" />
+
+             
+                                                      
