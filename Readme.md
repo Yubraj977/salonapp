@@ -6,7 +6,7 @@
                                                                                                                                                                                                                
   ## Features                                                                                                                                                                                                  
   - User management (Admin, Stylist, Customer)
-  - Appointment scheduling and cancellation                                                                                                                                                                    
+  - Appointment scheduling and cancellation                                                                                               
   - Secure BCrypt password hashing
   - Role-based access                                                                                                                                                                                          
    
@@ -24,6 +24,9 @@
                                                                                                                                                                                                                
   Javadoc
                                                                                                                                                                                                                
+
+---
+```
   https://Yubraj977.github.io/salonapp/                                                                                                                                                                        
    
   Authors                                                                                                                                                                                                      
@@ -32,16 +35,12 @@
   - Yousuf
   - Frederick
   - Abdul
-  - Alex
-  ---
-<img width="1108" height="900" alt="Screenshot 1" src="https://github.com/user-attachments/assets/93f7e5eb-bdcf-4f7f-8f9d-a86479b156d9">
-<img width="1362" height="369" alt="Screenshot 2" src="https://github.com/user-attachments/assets/f3246076-052e-46af-86df-da1d3d25d8d4">
+- Alex
 
+## Our App Demo
 
-![Screenshot 1](https://github.com/user-attachments/assets/93f7e5eb-bdcf-4f7f-8f9d-a86479b156d9)
-![Screenshot 2](https://github.com/user-attachments/assets/f3246076-052e-46af-86df-da1d3d25d8d4)
+  <img width="1362" height="369" alt="Screenshot 2026-04-30 at 3 45 47 PM" src="https://github.com/user-attachments/assets/282a813e-d6bd-4899-addc-a474bd1cb97d" />
+<img width="1108" height="900" alt="Screenshot 2026-04-30 at 3 47 27 PM" src="https://github.com/user-attachments/assets/b2cbd402-a208-4fd3-80dc-d47a94320bdf" />
 
-<img width="1108" height="900" alt="Screenshot 2026-04-30 at 3 47 27 PM" src="https://github.com/user-attachments/assets/93f7e5eb-bdcf-4f7f-8f9d-a86479b156d9" />
-<img width="1362" height="369" alt="Screenshot 2026-04-30 at 3 45 47 PM" src="https://github.com/user-attachments/assets/f3246076-052e-46af-86df-da1d3d25d8d4" />
-
-
+             
+                                                      
