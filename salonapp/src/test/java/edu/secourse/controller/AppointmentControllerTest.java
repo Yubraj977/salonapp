@@ -97,25 +97,32 @@ class AppointmentControllerTest {
     }
 
     @Test
-    void testOptionFourCancelAppointmentSuccess() {
+    void testOptionFourUpdateAppointmentSuccess() {
+        LocalDateTime newDateTime = LocalDateTime.of(2026, 5, 20, 10, 0);
+
         when(appointmentView.showMenuAndGetOption()).thenReturn(4, 0);
         when(appointmentView.getAppointmentIdInput()).thenReturn(appointment.getAppointmentId());
-        when(appointmentService.cancelAppointment(appointment.getAppointmentId())).thenReturn(true);
+        when(appointmentView.getNewDateTimeInput()).thenReturn(newDateTime);
+        when(appointmentService.updateAppointment(appointment.getAppointmentId(), newDateTime))
+                .thenReturn(true);
 
         appointmentController.startAppointmentManagement();
 
-        verify(appointmentView).displayMessage("Appointment successfully canceled");
+        verify(appointmentView).displayMessage("Appointment successfully updated");
     }
 
     @Test
-    void testOptionFourCancelAppointmentFail() {
+    void testOptionFourUpdateAppointmentFail() {
+        LocalDateTime newDateTime = LocalDateTime.of(2026, 5, 20, 10, 0);
+
         when(appointmentView.showMenuAndGetOption()).thenReturn(4, 0);
         when(appointmentView.getAppointmentIdInput()).thenReturn(999);
-        when(appointmentService.cancelAppointment(999)).thenReturn(false);
+        when(appointmentView.getNewDateTimeInput()).thenReturn(newDateTime);
+        when(appointmentService.updateAppointment(999, newDateTime)).thenReturn(false);
 
         appointmentController.startAppointmentManagement();
 
-        verify(appointmentView).displayMessage("Appointment could not be canceled");
+        verify(appointmentView).displayMessage("Appointment could not be updated");
     }
 
     @Test
@@ -138,61 +145,6 @@ class AppointmentControllerTest {
         appointmentController.startAppointmentManagement();
 
         verify(appointmentView).displayMessage("Error deleting appointment");
-    }
-
-    @Test
-    void testOptionSixRescheduleAppointmentSuccess() {
-        LocalDateTime newDateTime = LocalDateTime.of(2026, 5, 20, 10, 0);
-
-        when(appointmentView.showMenuAndGetOption()).thenReturn(6, 0);
-        when(appointmentView.getAppointmentIdInput()).thenReturn(appointment.getAppointmentId());
-        when(appointmentView.getNewDateTimeInput()).thenReturn(newDateTime);
-        when(appointmentService.rescheduleAppointment(appointment.getAppointmentId(), newDateTime))
-                .thenReturn(true);
-
-        appointmentController.startAppointmentManagement();
-
-        verify(appointmentView).displayMessage("Appointment successfully rescheduled");
-    }
-
-    @Test
-    void testOptionSixRescheduleAppointmentFail() {
-        LocalDateTime newDateTime = LocalDateTime.of(2026, 5, 20, 10, 0);
-
-        when(appointmentView.showMenuAndGetOption()).thenReturn(6, 0);
-        when(appointmentView.getAppointmentIdInput()).thenReturn(999);
-        when(appointmentView.getNewDateTimeInput()).thenReturn(newDateTime);
-        when(appointmentService.rescheduleAppointment(999, newDateTime)).thenReturn(false);
-
-        appointmentController.startAppointmentManagement();
-
-        verify(appointmentView).displayMessage("Appointment could not be rescheduled");
-    }
-
-    @Test
-    void testOptionSevenViewByCustomer() {
-        List<Appointment> customerAppointments = new ArrayList<>();
-
-        when(appointmentView.showMenuAndGetOption()).thenReturn(7, 0);
-        when(appointmentView.getCustomerIdInput()).thenReturn(1);
-        when(appointmentService.getAppointmentsByCustomer(1)).thenReturn(customerAppointments);
-
-        appointmentController.startAppointmentManagement();
-
-        verify(appointmentView).displayAllAppointments(customerAppointments);
-    }
-
-    @Test
-    void testOptionEightViewByStylist() {
-        List<Appointment> stylistAppointments = new ArrayList<>();
-
-        when(appointmentView.showMenuAndGetOption()).thenReturn(8, 0);
-        when(appointmentView.getStylistIdInput()).thenReturn(2);
-        when(appointmentService.getAppointmentsByStylist(2)).thenReturn(stylistAppointments);
-
-        appointmentController.startAppointmentManagement();
-
-        verify(appointmentView).displayAllAppointments(stylistAppointments);
     }
 
     @Test
@@ -219,10 +171,10 @@ class AppointmentControllerTest {
     void testIllegalArgumentException() {
         when(appointmentView.showMenuAndGetOption()).thenReturn(1, 0);
         when(appointmentView.getAppointmentCreationDetails())
-                .thenThrow(new IllegalArgumentException("Date/Time can not be null"));
+                .thenThrow(new IllegalArgumentException("Appointment cannot be null"));
 
         appointmentController.startAppointmentManagement();
 
-        verify(appointmentView).displayMessage("Date/Time can not be null");
+        verify(appointmentView).displayMessage("Appointment cannot be null");
     }
 }

@@ -5,7 +5,6 @@ import edu.secourse.service.AppointmentService;
 import edu.secourse.view.AppointmentView;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
 
 /**
@@ -67,11 +66,8 @@ public class AppointmentController {
                     case 1 -> createAppointment();
                     case 2 -> viewAllAppointments();
                     case 3 -> findAppointmentById();
-                    case 4 -> cancelAppointment();
+                    case 4 -> updateAppointment();
                     case 5 -> deleteAppointment();
-                    case 6 -> rescheduleAppointment();
-                    case 7 -> viewAppointmentsByCustomer();
-                    case 8 -> viewAppointmentsByStylist();
                     case 0 -> {
                         appointmentView.displayMessage("Exiting appointment management system...");
                         running = false;
@@ -129,19 +125,21 @@ public class AppointmentController {
     }
 
     /**
-     * Handles cancellation of an appointment by its ID.
+     * Handles updating the date and time of an existing appointment.
      *
-     * <p>Sets the appointment status to CANCELED without removing it from the system.
+     * <p>Prompts for the appointment ID and a new date/time, then delegates
+     * the update to the service layer.
      */
-    private void cancelAppointment() {
+    private void updateAppointment() {
         int id = appointmentView.getAppointmentIdInput();
+        LocalDateTime newDateTime = appointmentView.getNewDateTimeInput();
 
-        boolean canceled = appointmentService.cancelAppointment(id);
+        boolean updated = appointmentService.updateAppointment(id, newDateTime);
 
-        if (canceled) {
-            appointmentView.displayMessage("Appointment successfully canceled");
+        if (updated) {
+            appointmentView.displayMessage("Appointment successfully updated");
         } else {
-            appointmentView.displayMessage("Appointment could not be canceled");
+            appointmentView.displayMessage("Appointment could not be updated");
         }
     }
 
@@ -158,44 +156,5 @@ public class AppointmentController {
         } else {
             appointmentView.displayMessage("Error deleting appointment");
         }
-    }
-
-    /**
-     * Handles rescheduling of an existing appointment.
-     *
-     * <p>Prompts for the appointment ID and a new date/time, then delegates
-     * the update to the service layer.
-     */
-    private void rescheduleAppointment() {
-        int id = appointmentView.getAppointmentIdInput();
-        LocalDateTime newDateTime = appointmentView.getNewDateTimeInput();
-
-        boolean rescheduled = appointmentService.rescheduleAppointment(id, newDateTime);
-
-        if (rescheduled) {
-            appointmentView.displayMessage("Appointment successfully rescheduled");
-        } else {
-            appointmentView.displayMessage("Appointment could not be rescheduled");
-        }
-    }
-
-    /**
-     * Retrieves and displays all appointments for a specific customer.
-     */
-    private void viewAppointmentsByCustomer() {
-        int customerId = appointmentView.getCustomerIdInput();
-
-        List<Appointment> appointments = appointmentService.getAppointmentsByCustomer(customerId);
-        appointmentView.displayAllAppointments(appointments);
-    }
-
-    /**
-     * Retrieves and displays all appointments for a specific stylist.
-     */
-    private void viewAppointmentsByStylist() {
-        int stylistId = appointmentView.getStylistIdInput();
-
-        List<Appointment> appointments = appointmentService.getAppointmentsByStylist(stylistId);
-        appointmentView.displayAllAppointments(appointments);
     }
 }

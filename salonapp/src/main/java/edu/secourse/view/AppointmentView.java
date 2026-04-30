@@ -4,7 +4,6 @@ import edu.secourse.model.Appointment;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -43,11 +42,8 @@ public class AppointmentView {
         System.out.println("1. Create Appointment");
         System.out.println("2. View All Appointments");
         System.out.println("3. View Appointment By Id");
-        System.out.println("4. Cancel Appointment");
+        System.out.println("4. Update Appointment");
         System.out.println("5. Delete Appointment");
-        System.out.println("6. Reschedule Appointment");
-        System.out.println("7. View Appointments By Customer");
-        System.out.println("8. View Appointments By Stylist");
         System.out.println("0. Exit");
 
         return Integer.parseInt(scanner.nextLine());
@@ -57,7 +53,6 @@ public class AppointmentView {
      * Prompts the user to enter details required to create a new {@link Appointment}.
      *
      * @return a newly constructed {@link Appointment} object with user-provided details
-     * @throws DateTimeParseException if the date/time input is not in the expected format
      */
     public Appointment getAppointmentCreationDetails() {
         System.out.println("\n----- Create Appointment ------");
@@ -86,32 +81,9 @@ public class AppointmentView {
     }
 
     /**
-     * Prompts the user to enter a customer ID.
-     *
-     * @return the customer ID entered by the user
-     * @throws NumberFormatException if the input is not a valid integer
-     */
-    public int getCustomerIdInput() {
-        System.out.println("Please enter customer ID:");
-        return Integer.parseInt(scanner.nextLine());
-    }
-
-    /**
-     * Prompts the user to enter a stylist ID.
-     *
-     * @return the stylist ID entered by the user
-     * @throws NumberFormatException if the input is not a valid integer
-     */
-    public int getStylistIdInput() {
-        System.out.println("Please enter stylist ID:");
-        return Integer.parseInt(scanner.nextLine());
-    }
-
-    /**
-     * Prompts the user to enter a new date and time for rescheduling.
+     * Prompts the user to enter a new date and time for updating an appointment.
      *
      * @return the new {@link LocalDateTime} entered by the user
-     * @throws DateTimeParseException if the input is not in the expected format
      */
     public LocalDateTime getNewDateTimeInput() {
         System.out.println("Please enter new date and time (yyyy-MM-dd HH:mm):");
