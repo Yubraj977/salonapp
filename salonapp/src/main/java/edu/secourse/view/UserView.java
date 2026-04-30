@@ -1,7 +1,7 @@
 package edu.secourse.view;
 
 import edu.secourse.model.User;
-
+import org.apache.commons.validator.routines.EmailValidator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -68,8 +68,22 @@ public class UserView {
         System.out.println("Please enter your full name:");
         String fullName = scanner.nextLine();
 
-        System.out.println("Please enter your email:");
-        String email = scanner.nextLine();
+        // Email validation
+        String email = "";
+        boolean isEmailValid = false;
+        while (!isEmailValid) {
+            System.out.println("Please enter your email:");
+            email = scanner.nextLine();
+
+
+            EmailValidator validator = EmailValidator.getInstance();
+            isEmailValid = validator.isValid("example@domain.com");
+            if (isEmailValid) {
+                System.out.println("Email is verified. Proceed!");
+                break;
+            }
+        }
+
 
         System.out.println("Please select role:");
         String role = scanner.nextLine();
