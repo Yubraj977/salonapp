@@ -36,8 +36,12 @@ public class AppointmentService {
         return appointments.stream().filter(Appointment -> Appointment.getAppointmentId() == id).findFirst();
     }
 
-    public boolean updateAppointment(int cID, LocalDateTime sDT) {
-        Optional<Appointment> optionalAppointment = getAppointmentById(cID);
+    public Optional<Appointment> getAppointmentByStartDateTime(LocalDateTime sDT) {
+        return appointments.stream().filter(Appointment -> Appointment.getStartDateTime().equals(sDT)).findFirst();
+    }
+
+    public boolean updateAppointment(int aID, LocalDateTime sDT) {
+        Optional<Appointment> optionalAppointment = getAppointmentById(aID);
         if (optionalAppointment.isEmpty()) {
             return false;
         }
@@ -46,11 +50,11 @@ public class AppointmentService {
         return true;
     }
 
-    public boolean deleteAppointment(int cID) {
-        Optional<Appointment> optionalAppointment = getAppointmentById(cID);
+    public boolean deleteAppointment(int aID) {
+        Optional<Appointment> optionalAppointment = getAppointmentById(aID);
         if (optionalAppointment.isEmpty()) {
             return false;
         }
-        return appointments.removeIf(Appointment -> Appointment.getAppointmentId() == cID);
+        return appointments.removeIf(Appointment -> Appointment.getAppointmentId() == aID);
     }
 }
