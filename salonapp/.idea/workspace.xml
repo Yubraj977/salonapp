@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="f8116680-2335-4117-9266-b2c630d7dcaa" name="Changes" comment="" />
-=======
-    <list default="true" id="f8116680-2335-4117-9266-b2c630d7dcaa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/service/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/model/Appointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/secourse/service/AppointmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/secourse/model/AppointmentTest.java" afterDir="false" />
+    <list default="true" id="96e89e9a-6a6f-49e5-a0da-88c9e876ca91" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/view/UserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/view/UserView.java" afterDir="false" />
     </list>
->>>>>>> own-created
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +20,6 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -32,67 +30,23 @@
     <commands />
     <urls />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
-}</component>
-  <component name="ProjectId" id="3Cm08PIUqFjmoZ0cPHBNWzL9Y43" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="3D09L15ZF6voprSz0aQjNek9ES4" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< HEAD
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AdminTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.StylistTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserTest.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;fred/user-developer&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/freddie/Documents/SB_Spring2026/CSC527/project/salonapp/salonapp/src/main/java/edu/secourse/Main.java&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-=======
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
-    "JUnit.AdminTest.executor": "Run",
-    "JUnit.AppointmentTest.executor": "Run",
-    "JUnit.CustomerTest.executor": "Run",
-    "JUnit.StylistTest.executor": "Run",
-    "JUnit.UserControllerTest.executor": "Run",
-    "JUnit.UserServiceTest.executor": "Run",
-    "JUnit.UserTest.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "own-created",
+    "git-widget-placeholder": "fred/user-developer",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -100,109 +54,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/Users/freddie/Documents/SB_Spring2026/CSC527/project/salonapp/salonapp/src/main/java/edu/secourse/Main.java",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
->>>>>>> own-created
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="edu.secourse.model" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="edu.secourse.controller" />
-      <recent name="edu.secourse.service" />
-      <recent name="edu.secourse.model" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.secourse.Main" />
-      <module name="salonapp" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.secourse.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AdminTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="salonapp" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.secourse.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.secourse.model" />
-      <option name="MAIN_CLASS_NAME" value="edu.secourse.model.AdminTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppointmentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="salonapp" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.secourse.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.secourse.model" />
-      <option name="MAIN_CLASS_NAME" value="edu.secourse.model.AppointmentTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CustomerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="salonapp" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.secourse.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.secourse.model" />
-      <option name="MAIN_CLASS_NAME" value="edu.secourse.model.CustomerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="salonapp" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.secourse.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.secourse.controller" />
-      <option name="MAIN_CLASS_NAME" value="edu.secourse.controller.UserControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.AppointmentTest" />
-        <item itemvalue="JUnit.UserControllerTest" />
-        <item itemvalue="JUnit.AdminTest" />
-        <item itemvalue="JUnit.CustomerTest" />
-      </list>
-    </recent_temporary>
-  </component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -213,13 +68,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f8116680-2335-4117-9266-b2c630d7dcaa" name="Changes" comment="" />
-      <created>1776975279280</created>
+      <changelist id="96e89e9a-6a6f-49e5-a0da-88c9e876ca91" name="Changes" comment="" />
+      <created>1777408060327</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1776975279280</updated>
-      <workItem from="1776975280320" duration="30112000" />
-      <workItem from="1777395058933" duration="252000" />
+      <updated>1777408060327</updated>
+      <workItem from="1777408061353" duration="5575000" />
     </task>
     <servers />
   </component>

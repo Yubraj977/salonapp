@@ -44,8 +44,7 @@ public class UserView {
         System.out.println("3. View User By Id");
         System.out.println("4. Update User");
         System.out.println("5. Delete User");
-        System.out.println("6. Login");
-        System.out.println("7. Change Password");
+        System.out.println("6. Change Password");
         System.out.println("0. Exit");
 
         return Integer.parseInt(scanner.nextLine());
@@ -77,10 +76,12 @@ public class UserView {
 
 
             EmailValidator validator = EmailValidator.getInstance();
-            isEmailValid = validator.isValid("example@domain.com");
+            isEmailValid = validator.isValid(email);
             if (isEmailValid) {
                 System.out.println("Email is verified. Proceed!");
                 break;
+            }else{
+                System.err.println("Invalid email!");
             }
         }
 
