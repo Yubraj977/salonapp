@@ -67,8 +67,7 @@ public class UserController {
                     case 3 -> findUserById();
                     case 4 -> updateUser();
                     case 5 -> deleteUser();
-                    case 6 -> login();
-                    case 7 -> changePassword();
+                    case 6 -> changePassword();
                     case 0 -> {
                         userView.displayMessage("Exiting user management system...");
                         running = false;
@@ -112,18 +111,18 @@ public class UserController {
      * <p>Prompts for username and password, then verifies credentials using
      * the service layer.
      */
-    private void login() {
-        String username = userView.getUsernameInput();
-        String password = userView.getPasswordInput();
-
-        boolean authenticated = userService.authenticate(username, password);
-
-        if (authenticated) {
-            userView.displayMessage("Logged in successfully");
-        } else {
-            userView.displayMessage("Invalid username or password");
-        }
-    }
+//    private void login() {
+//        String username = userView.getUsernameInput();
+//        String password = userView.getPasswordInput();
+//
+//        boolean authenticated = userService.authenticate(username, password);
+//
+//        if (authenticated) {
+//            userView.displayMessage("Logged in successfully");
+//        } else {
+//            userView.displayMessage("Invalid username or password");
+//        }
+//    }
 
     /**
      * Handles deletion of a user by account ID.
