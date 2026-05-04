@@ -5,6 +5,7 @@ import edu.secourse.model.Appointment;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 public class AppointmentService {
@@ -40,6 +41,18 @@ public class AppointmentService {
         return appointments.stream().filter(Appointment -> Appointment.getStartDateTime().equals(sDT)).findFirst();
     }
 
+    public List<Appointment> getAppointmentsByCustomer(int customerId) {
+        return appointments.stream()
+                .filter(appointment -> appointment.getCustomerId() == customerId)
+                .toList();
+    }
+
+    public List<Appointment> getAppointmentsByStylist(int stylistId) {
+        return appointments.stream()
+                .filter(appointment -> appointment.getStylistId() == stylistId)
+                .toList();
+    }
+
     public boolean updateAppointment(int aID, LocalDateTime sDT) {
         Optional<Appointment> optionalAppointment = getAppointmentById(aID);
         if (optionalAppointment.isEmpty()) {
@@ -50,7 +63,7 @@ public class AppointmentService {
         return true;
     }
 
-    public boolean deleteAppointment(int aID) {
+    public boolean cancelAppointment(int aID) {
         Optional<Appointment> optionalAppointment = getAppointmentById(aID);
         if (optionalAppointment.isEmpty()) {
             return false;

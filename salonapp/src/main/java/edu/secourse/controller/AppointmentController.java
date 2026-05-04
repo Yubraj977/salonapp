@@ -151,7 +151,7 @@ public class AppointmentController {
     private void deleteAppointment() {
         int id = appointmentView.getAppointmentIdInput();
 
-        boolean deleted = appointmentService.deleteAppointment(id);
+        boolean deleted = appointmentService.cancelAppointment(id);
 
         if (deleted) {
             appointmentView.displayMessage("Successfully deleted appointment");
@@ -170,7 +170,7 @@ public class AppointmentController {
         int id = appointmentView.getAppointmentIdInput();
         LocalDateTime newDateTime = appointmentView.getNewDateTimeInput();
 
-        boolean rescheduled = appointmentService.rescheduleAppointment(id, newDateTime);
+        boolean rescheduled = appointmentService.updateAppointment(id, newDateTime);
 
         if (rescheduled) {
             appointmentView.displayMessage("Appointment successfully rescheduled");
