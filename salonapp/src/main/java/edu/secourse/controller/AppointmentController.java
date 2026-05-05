@@ -1,6 +1,7 @@
 package edu.secourse.controller;
 
 import edu.secourse.model.Appointment;
+import edu.secourse.model.User;
 import edu.secourse.service.AppointmentService;
 import edu.secourse.view.AppointmentView;
 
@@ -56,27 +57,48 @@ public class AppointmentController {
      * <p>Exceptions are handled gracefully to prevent application crashes due
      * to invalid input or unexpected runtime errors.
      */
-    public void startAppointmentManagement() {
+    public void startAppointmentManagement(User loggedUser) {
         boolean running = true;
 
         while (running) {
             try {
-                int option = appointmentView.showMenuAndGetOption();
+                if (loggedUser == null) {
+                    return;
+                }
+                if(loggedUser.getRole().equalsIgnoreCase("admin")){
+                    int option = appointmentView.showMenuAndGetOption("admin");
 
-                switch (option) {
-                    case 1 -> createAppointment();
-                    case 2 -> viewAllAppointments();
-                    case 3 -> findAppointmentById();
-                    case 4 -> cancelAppointment();
-                    case 5 -> deleteAppointment();
-                    case 6 -> rescheduleAppointment();
-                    case 7 -> viewAppointmentsByCustomer();
-                    case 8 -> viewAppointmentsByStylist();
-                    case 0 -> {
-                        appointmentView.displayMessage("Exiting appointment management system...");
-                        running = false;
+                    switch (option) {
+                        case 1 -> createAppointment();
+                        case 2 -> viewAllAppointments();
+                        case 3 -> findAppointmentById();
+                        case 4 -> cancelAppointment();
+                        case 5 -> deleteAppointment();
+                        case 6 -> rescheduleAppointment();
+                        case 7 -> viewAppointmentsByCustomer();
+                        case 8 -> viewAppointmentsByStylist();
+                        case 0 -> {
+                            appointmentView.displayMessage("Exiting appointment management system...");
+                            running = false;
+                        }
+                        default -> appointmentView.displayMessage("Invalid option selected.");
                     }
-                    default -> appointmentView.displayMessage("Invalid option selected.");
+                }
+                else if (
+                        loggedUser.getRole().equalsIgnoreCase("customer")
+                                || loggedUser.getRole().equalsIgnoreCase("stylist")) {
+                    int option = appointmentView.showMenuAndGetOption(loggedUser.getRole());
+
+                    switch (option) {
+                        case 1 -> viewUserAppointments();
+                        case 2 -> cancelAppointment();
+                        case 3 -> rescheduleAppointment();
+                        case 0 -> {
+                            appointmentView.displayMessage("Exiting appointment management system...");
+                            running = false;
+                        }
+                        default -> appointmentView.displayMessage("Invalid option selected.");
+                    }
                 }
 
             } catch (NumberFormatException e) {
@@ -106,10 +128,16 @@ public class AppointmentController {
         }
     }
 
+    private void viewUserAppointments() {
+        List<Appointment> appointments = appointmentService.getAppointmentsForLoggedInUser();
+        appointmentView.displayAppointments(appointments);
+    }
+
     /**
      * Retrieves and displays all appointments.
      */
     private void viewAllAppointments() {
+
         appointmentView.displayAllAppointments(appointmentService.getAppointments());
     }
 

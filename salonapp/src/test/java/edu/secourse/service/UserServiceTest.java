@@ -1,6 +1,7 @@
 package edu.secourse.service;
 
 import edu.secourse.model.User;
+import edu.secourse.util.PasswordUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -142,18 +143,18 @@ class UserServiceTest {
 
     @Test
     void testAuthenticateCorrectCredentials() {
-        boolean result = userService.authenticate("jdoe", "password123");
+        User user = userService.authenticate("jdoe", "password123");
 
-        assertTrue(result);
+        assertNotNull(user);
+        assertEquals("jdoe", user.getUsername());
+        assertTrue(PasswordUtil.checkPassword("password123", user.getPassword()));
     }
 
     @Test
     void testAuthenticateIncorrectCredentials() {
-        boolean result1 = userService.authenticate("jdoe", "wrongpassword123");
-        boolean result2 = userService.authenticate("missingUser", "password123");
+        User result = userService.authenticate("noUser", "noPass");
 
-        assertFalse(result1);
-        assertFalse(result2);
+        assertNull(result);
     }
 
     @Test
@@ -161,17 +162,19 @@ class UserServiceTest {
         boolean result1 = userService.changePassword("jdoe", "password123", "newpassword");
         boolean result2 = userService.changePassword("missingUser", "password123", "newpassword");
 
-        /* change password for existing user */
+        // change password for existing user
         assertTrue(result1);
-        assertTrue(userService.authenticate("jdoe", "newpassword"));
-        assertFalse(userService.authenticate("jdoe", "wrongpassword123"));
+        assertNotNull(userService.authenticate("jdoe", "newpassword"));
+        assertNull(userService.authenticate("jdoe", "wrongpassword123"));
 
-        //User does not exist
+        // user does not exist
         assertFalse(result2);
 
-        //exception for old wrong password
-        assertThrows(IllegalArgumentException.class, () -> userService.changePassword("jdoe", "wrongpassword123", "newpassword"));
-
+        // exception for old wrong password
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> userService.changePassword("jdoe", "wrongpassword123", "newpassword")
+        );
     }
 
 }

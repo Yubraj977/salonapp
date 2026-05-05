@@ -14,8 +14,7 @@ class CustomerTest {
                 "customer",
                 "customer123",
                 "Customer Test",
-                "customer@email.com",
-                "CUSTOMER"
+                "customer@email.com"
         );
 
         assertAll(
@@ -23,7 +22,7 @@ class CustomerTest {
                 () -> assertEquals("customer", customer.getUsername()),
                 () -> assertEquals("Customer Test", customer.getName()),
                 () -> assertEquals("customer@email.com", customer.getEmail()),
-                () -> assertEquals("CUSTOMER", customer.getRole()),
+                () -> assertEquals("CUSTOMER", customer.getRole().toUpperCase()),
                 () -> assertTrue(customer.checkPassword("customer123"))
         );
     }

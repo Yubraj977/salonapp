@@ -54,25 +54,43 @@ public class UserController {
      * <p>Exceptions are handled gracefully to prevent application crashes due
      * to invalid input or unexpected runtime errors.
      */
-    public void startUserManagement() {
+    public void startUserManagement(User loggedUser) {
         boolean running = true;
 
         while (running) {
             try {
-                int option = userView.showMenuAndGetOption();
+                if (loggedUser == null) {
+                    return;
+                }
+                if(loggedUser.getRole().equalsIgnoreCase("admin")) {
+                    int option = userView.showMenuAndGetOption("admin");
 
-                switch (option) {
-                    case 1 -> createUser();
-                    case 2 -> viewAllUsers();
-                    case 3 -> findUserById();
-                    case 4 -> updateUser();
-                    case 5 -> deleteUser();
-                    case 6 -> changePassword();
-                    case 0 -> {
-                        userView.displayMessage("Exiting user management system...");
-                        running = false;
+                    switch (option) {
+                        case 1 -> createUser();
+                        case 2 -> viewAllUsers();
+                        case 3 -> findUserById();
+                        case 4 -> updateUser();
+                        case 5 -> deleteUser();
+                        case 6 -> changePassword();
+                        case 0 -> {
+                            userView.displayMessage("Exiting user management system...");
+                            running = false;
+                        }
+                        default -> userView.displayMessage("Invalid option selected.");
                     }
-                    default -> userView.displayMessage("Invalid option selected.");
+                } else if (
+                        loggedUser.getRole().equalsIgnoreCase("customer")
+                                || loggedUser.getRole().equalsIgnoreCase("stylist")) {
+                    int option = userView.showMenuAndGetOption(loggedUser.getRole());
+
+                    switch (option) {
+                        case 1 -> changePassword();
+                        case 0 -> {
+                            userView.displayMessage("Exiting user management system...");
+                            running = false;
+                        }
+                        default -> userView.displayMessage("Invalid option selected.");
+                    }
                 }
 
             } catch (NumberFormatException e) {

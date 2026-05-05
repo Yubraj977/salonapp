@@ -1,6 +1,8 @@
 package edu.secourse.controller;
 
+import edu.secourse.model.User;
 import edu.secourse.service.UserService;
+import edu.secourse.session.UserSession;
 import edu.secourse.view.UserView;
 
 public class AuthController {
@@ -29,13 +31,24 @@ public class AuthController {
         String username = userView.getUsernameInput();
         String password = userView.getPasswordInput();
 
-        boolean authenticated = userService.authenticate(username, password);
+//        boolean authenticated = userService.authenticate(username, password);
+        User user = userService.authenticate(username, password);
 
-        if (authenticated) {
-            userView.displayMessage("Logged in successfully");
-        } else {
+        if (user != null) {
+            UserSession.login(user);
+//            userView.displayMessage("Logged in successfully as " + user.getRole());
+            userView.displayMessage("Welcome " + user.getName() + " (" + user.getRole() + ")");
+            return true;
+        }else {
             userView.displayMessage("Invalid username or password");
+            return false;
         }
-        return authenticated;
+
+//        if (authenticated) {
+//            userView.displayMessage("Logged in successfully");
+//        } else {
+//            userView.displayMessage("Invalid username or password");
+//        }
+//        return authenticated;
     }
 }

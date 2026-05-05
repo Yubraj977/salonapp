@@ -2,6 +2,8 @@ package edu.secourse.view;
 
 import edu.secourse.model.User;
 import org.apache.commons.validator.routines.EmailValidator;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -35,17 +37,22 @@ public class UserView {
      * @return the selected menu option as an integer
      * @throws NumberFormatException if the input cannot be parsed as an integer
      */
-    public int showMenuAndGetOption() {
+    public int showMenuAndGetOption(String role) {
         System.out.println("\n====== User Management =======");
         System.out.println("Please select an option:");
 
-        System.out.println("1. Create User");
-        System.out.println("2. View All Users");
-        System.out.println("3. View User By Id");
-        System.out.println("4. Update User");
-        System.out.println("5. Delete User");
-        System.out.println("6. Change Password");
-        System.out.println("0. Exit");
+        if (role.equalsIgnoreCase("admin")) {
+            System.out.println("1. Create User");
+            System.out.println("2. View All Users");
+            System.out.println("3. View User By Id");
+            System.out.println("4. Update User");
+            System.out.println("5. Delete User");
+            System.out.println("6. Change Password");
+            System.out.println("0. Exit");
+        } else if(role.equalsIgnoreCase("customer") || role.equalsIgnoreCase("stylist")) {
+            System.out.println("1. Change Password");
+            System.out.println("0. Exit");
+        }
 
         return Integer.parseInt(scanner.nextLine());
     }
@@ -85,9 +92,22 @@ public class UserView {
             }
         }
 
+        String role = "";
+        boolean isRoleValid = false;
+        List<String> roles = List.of("ADMIN", "CUSTOMER", "STYLIST");
+        while (!isRoleValid) {
+            System.out.println("Please select role:");
+            role = scanner.nextLine();
 
-        System.out.println("Please select role:");
-        String role = scanner.nextLine();
+            // Validate role
+            if (roles.contains(role)) {
+                isRoleValid = true;
+            }
+            else  {
+                isRoleValid = false;
+                System.out.println("Invalid role. Please try again!");
+            }
+        }
 
         return new User(username, password, fullName, email, role);
     }

@@ -2,6 +2,12 @@ package edu.secourse.service;
 
 import edu.secourse.model.User;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import edu.secourse.util.PasswordUtil;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -55,6 +61,9 @@ public class UserService {
         }
 
         users.add(user);
+
+        // add user to json
+        saveUserToJson(user);
         return true;
     }
 
@@ -84,6 +93,11 @@ public class UserService {
 
         return users.stream()
                 .anyMatch(user -> user.getUsername().equals(username));
+    }
+
+    public boolean existsByAccountNumber(int accountNumber) {
+        return users.stream()
+                .anyMatch(user -> user.getAccountId() == accountNumber);
     }
 
     /**
@@ -173,12 +187,18 @@ public class UserService {
      * @return {@code true} if authentication is successful,
      *         {@code false} otherwise
      */
-    public boolean authenticate(String username, String password) {
-        Optional<User> optionalUser = getUserByUsername(username);
+    public User authenticate(String username, String password) {
+//        Optional<User> optionalUser = getUserByUsername(username);
 
-        return optionalUser
-                .map(u -> u.checkPassword(password))
-                .orElse(false);
+//        return optionalUser
+//                .map(u -> u.checkPassword(password))
+//                .orElse(false);
+        return users.stream()
+                .filter(user -> user.getUsername().equals(username)
+                        && PasswordUtil.checkPassword(password, user.getPassword())
+                )
+                .findFirst()
+                .orElse(null);
     }
 
     /**
@@ -203,5 +223,40 @@ public class UserService {
 
         optionalUser.get().changePassword(oldPassword, newPassword);
         return true;
+    }
+
+    public void saveUserToJson(User user) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        File file = new File("data/users.json");
+
+        try {
+            // Ensure directory exists
+            file.getParentFile().mkdirs();
+
+            List<User> users;
+
+            //Read existing users if file exists
+            if (file.exists() && file.length() > 0) {
+                users = objectMapper.readValue(file, new TypeReference<List<User>>() {});
+            } else {
+                users = new ArrayList<>();
+            }
+
+            // Check if user exists already
+            boolean exists = users.stream()
+                    .anyMatch(u -> u.getAccountId() == user.getAccountId());
+
+            if (!exists) {
+                // Add new user
+                users.add(user);
+            }
+
+            // Write updated list back
+            objectMapper.writerWithDefaultPrettyPrinter()
+                    .writeValue(file, users);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

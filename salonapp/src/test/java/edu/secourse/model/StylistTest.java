@@ -14,8 +14,7 @@ class StylistTest {
                 "stylist",
                 "stylist123",
                 "Stylist Test",
-                "stylist@email.com",
-                "STYLIST"
+                "stylist@email.com"
         );
 
         assertAll(
@@ -23,7 +22,7 @@ class StylistTest {
                 () -> assertEquals("stylist", stylist.getUsername()),
                 () -> assertEquals("Stylist Test", stylist.getName()),
                 () -> assertEquals("stylist@email.com", stylist.getEmail()),
-                () -> assertEquals("STYLIST", stylist.getRole()),
+                () -> assertEquals("STYLIST", stylist.getRole().toUpperCase()),
                 () -> assertTrue(stylist.checkPassword("stylist123"))
         );
     }

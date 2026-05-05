@@ -1,6 +1,8 @@
 package edu.secourse.view;
 
 import edu.secourse.model.Appointment;
+import edu.secourse.service.AppointmentService;
+import edu.secourse.service.UserService;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -24,6 +26,9 @@ import java.util.Scanner;
  */
 public class AppointmentView {
 
+    // UserService to enable this view to see user details for validation
+    private UserService userService;
+
     /** Formatter used for parsing and displaying date/time input. */
     private static final DateTimeFormatter FORMATTER =
             DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
@@ -31,24 +36,38 @@ public class AppointmentView {
     /** Scanner used to read user input from the console. */
     private final Scanner scanner = new Scanner(System.in);
 
+    public AppointmentView(UserService userService) {
+        this.userService = userService;
+    }
+
     /**
      * Displays the appointment management menu and retrieves the user's selected option.
      *
      * @return the selected menu option as an integer
      * @throws NumberFormatException if the input cannot be parsed as an integer
      */
-    public int showMenuAndGetOption() {
-        System.out.println("\n====== Appointment Management =======");
-        System.out.println("Please select an option:");
-        System.out.println("1. Create Appointment");
-        System.out.println("2. View All Appointments");
-        System.out.println("3. View Appointment By Id");
-        System.out.println("4. Cancel Appointment");
-        System.out.println("5. Delete Appointment");
-        System.out.println("6. Reschedule Appointment");
-        System.out.println("7. View Appointments By Customer");
-        System.out.println("8. View Appointments By Stylist");
-        System.out.println("0. Exit");
+    public int showMenuAndGetOption(String role) {
+
+        if (role.equalsIgnoreCase("admin")) {
+            System.out.println("\n====== Appointment Management =======");
+            System.out.println("Please select an option:");
+            System.out.println("1. Create Appointment");
+            System.out.println("2. View All Appointments");
+            System.out.println("3. View Appointment By Id");
+            System.out.println("4. Cancel Appointment");
+            System.out.println("5. Delete Appointment");
+            System.out.println("6. Reschedule Appointment");
+            System.out.println("7. View Appointments By Customer");
+            System.out.println("8. View Appointments By Stylist");
+            System.out.println("0. Exit");
+        } else if (role.equalsIgnoreCase("customer") || role.equalsIgnoreCase("stylist")) {
+            System.out.println("\n====== Appointment Management =======");
+            System.out.println("Please select an option:");
+            System.out.println("1. View my appointments");
+            System.out.println("2. Cancel Appointment");
+            System.out.println("3. Reschedule Appointment");
+            System.out.println("0. Exit");
+        }
 
         return Integer.parseInt(scanner.nextLine());
     }
@@ -62,11 +81,41 @@ public class AppointmentView {
     public Appointment getAppointmentCreationDetails() {
         System.out.println("\n----- Create Appointment ------");
 
+        // Check to see if customer with id exists
         System.out.println("Please enter customer ID:");
-        int customerId = Integer.parseInt(scanner.nextLine());
+        boolean customerExists = true;
 
+        int customerId = 0;
+        while (customerExists) {
+            customerId = Integer.parseInt(scanner.nextLine());
+
+            if (userService.existsByAccountNumber(customerId)) {
+                customerExists = false;
+                System.out.println("Customer ID: " + customerId + " found.");
+//                break;
+            }else  {
+                System.out.println("Customer ID: " + customerId + " not found.\n Please try again.");
+                customerExists = true;
+            }
+        }
+
+        // Check to see if stylist with id exists
         System.out.println("Please enter stylist ID:");
-        int stylistId = Integer.parseInt(scanner.nextLine());
+        boolean stylistExists = true;
+
+        int stylistId = 0;
+        while (stylistExists) {
+            stylistId = Integer.parseInt(scanner.nextLine());
+
+            if (userService.existsByAccountNumber(stylistId)) {
+                stylistExists = false;
+                System.out.println("Stylist ID: " + stylistId + " found.");
+//                break;
+            }else  {
+                System.out.println("Stylist ID: " + customerId + " not found.\n Please try again.");
+                stylistExists = true;
+            }
+        }
 
         System.out.println("Please enter appointment date and time (yyyy-MM-dd HH:mm):");
         LocalDateTime dateTime = LocalDateTime.parse(scanner.nextLine(), FORMATTER);
@@ -126,6 +175,13 @@ public class AppointmentView {
     public void displayAppointment(Appointment appointment) {
         System.out.println("\n----- Appointment Details ------");
         System.out.println(appointment);
+    }
+
+    public void displayAppointments(List<Appointment> appointments) {
+        System.out.println("\n----- Appointments ------");
+        for (Appointment appointment : appointments) {
+            displayAppointment(appointment);
+        }
     }
 
     /**
