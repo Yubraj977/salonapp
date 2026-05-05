@@ -31,7 +31,9 @@
   - Calendar integration for scheduling
   - Allow admins to manage user accounts and appointments
 
+## Javadoc
 
+[📄 View Javadoc Documentation](https://Yubraj977.github.io/salonapp/slogix_javadoc/index.html)
 
 | Requirement | User Story | Importance |
 |---|---|---|
