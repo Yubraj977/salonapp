@@ -41,7 +41,7 @@ Requirement	User Story	Importance
 •	Calendar integration for scheduling	As a stylist, I want my appointments to sync with a calendar so that I can keep track of my schedule more easily.	HIGH
 •	Allow admins to manage user accounts and appointments	As the admin, he/she should be able to manage user accounts and appointments in case user loses their account info or appointment time.	MODERATE
 
-## Use-cases !!Create dropd down toggle
+  ## Use-cases !!Create dropd down toggle
 -------------
 Use Cases*
 1.	Application Start:
@@ -230,6 +230,10 @@ if no appointments system displays “No appointments scheduled for today”
 ----------
 
 
+  ## Detailed Requirements
+  <img width="975" height="931" alt="image" src="https://github.com/user-attachments/assets/6ce2a20e-4ff5-4de9-a5d5-87f878e20c33" />
+
+  <img width="975" height="652" alt="image" src="https://github.com/user-attachments/assets/763b5d30-0fa4-4f02-bc74-891696e7f416" />
 
 
 
