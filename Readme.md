@@ -31,15 +31,17 @@
   - Calendar integration for scheduling
   - Allow admins to manage user accounts and appointments
 
-!! Make into table: 
-Requirement	User Story	Importance
-•	Stylists would want to see a complete list of all appointments past and present	As a stylist, he/she should be able to manage appointments to keep up on future appointments.	MODERATE
-•	Customers must be able to manage their appointments.	As a customer, he/she should be able to make/cancel appointments.	 LOW
-•	Time slots can’t overlap for the same stylist	As an admin, two customers shouldn’t be able to book overlapping times for one stylist to minimize confusion and maximize customer satisfaction.	HIGH
-•	Unique login ID and pass code storage	As an admin, two users shouldn’t be able to have the same login ID and passcode so they don’t access one another’s account.	HIGH
-•	Cancellation only allowed more than 24 hours from appointment	As a customer, I want the app to tell me whether I am still within the 24 hour window for appointment cancellation so I may cancel if necessary.	LOW
-•	Calendar integration for scheduling	As a stylist, I want my appointments to sync with a calendar so that I can keep track of my schedule more easily.	HIGH
-•	Allow admins to manage user accounts and appointments	As the admin, he/she should be able to manage user accounts and appointments in case user loses their account info or appointment time.	MODERATE
+
+
+| Requirement | User Story | Importance |
+|---|---|---|
+| Stylists can view all appointments (past and present) | As a stylist, he/she should be able to manage appointments to keep up on future appointments. | MODERATE |
+| Customers can manage their appointments | As a customer, he/she should be able to make/cancel appointments. | LOW |
+| No overlapping time slots for the same stylist | As an admin, two customers shouldn't be able to book overlapping times for one stylist to minimize confusion and maximize customer satisfaction. | HIGH |
+| Unique login ID and passcode storage | As an admin, two users shouldn't be able to have the same login ID and passcode so they don't access one another's account. | HIGH |
+| Cancellation only allowed more than 24 hours before appointment | As a customer, I want the app to tell me whether I am still within the 24 hour window for appointment cancellation so I may cancel if necessary. | LOW |
+| Calendar integration for scheduling | As a stylist, I want my appointments to sync with a calendar so that I can keep track of my schedule more easily. | HIGH |
+| Admins can manage user accounts and appointments | As the admin, he/she should be able to manage user accounts and appointments in case user loses their account info or appointment time. | MODERATE |
 
   ## Use-cases !!Create dropd down toggle
   <details>
