@@ -52,7 +52,6 @@
 <summary>Our Use Cases</summary>
 
 -------------
-Use Cases*
 # Appointment Scheduling System - Use Cases
 
 ---
