@@ -3,7 +3,10 @@
   # SLogics Salon App
                                                                                                                                                                                                                
   A Java-based salon management system for managing users, stylists, customers, and appointments.
-                                                                                                                                                                                      
+         <img src="https://drive.google.com/uc?id=1OVERFgQ_5GOW3-t0H2vXtDASvPYrdaxW"/>   
+         ## CRC Cards & UML Diagram
+
+<img src="https://drive.google.com/uc?id=1OVERFgQ_5GOW3-t0H2vXtDASvPYrdaxW" alt="CRC Cards and UML Diagram" width="100%">
   # Authors                                                                                                                                                                                                      
                   
   - Yubraj
