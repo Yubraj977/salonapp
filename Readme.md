@@ -3,10 +3,7 @@
   # SLogics Salon App
                                                                                                                                                                                                                
   A Java-based salon management system for managing users, stylists, customers, and appointments.
-         <img src="https://drive.google.com/uc?id=1OVERFgQ_5GOW3-t0H2vXtDASvPYrdaxW"/>   
-         ## CRC Cards & UML Diagram
-
-<img src="https://drive.google.com/uc?id=1OVERFgQ_5GOW3-t0H2vXtDASvPYrdaxW" alt="CRC Cards and UML Diagram" width="100%">
+        
   # Authors                                                                                                                                                                                                      
                   
   - Yubraj
@@ -45,7 +42,13 @@
 | Cancellation only allowed more than 24 hours before appointment | As a customer, I want the app to tell me whether I am still within the 24 hour window for appointment cancellation so I may cancel if necessary. | LOW |
 | Calendar integration for scheduling | As a stylist, I want my appointments to sync with a calendar so that I can keep track of my schedule more easily. | HIGH |
 | Admins can manage user accounts and appointments | As the admin, he/she should be able to manage user accounts and appointments in case user loses their account info or appointment time. | MODERATE |
+## CRC Cards & UML Diagram
 
+<img src="./images/CRC Card-Page-1.drawio.svg" alt="CRC Cards" width="100%">
+
+## Use Case Diagram
+
+<img src="./images/Lab 5 Use Case Diagrams.drawio.svg" alt="Use Case Diagram" width="100%">
   ## Use-cases
   <details>
 
