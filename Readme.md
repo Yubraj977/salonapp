@@ -49,7 +49,8 @@
 ## Use Case Diagram
 
 <img src="./images/Lab 5 Use Case Diagrams.drawio.svg" alt="Use Case Diagram" width="100%">
-  ## Use-cases
+  
+## Use-cases
   <details>
 
 <summary>Our Use Cases</summary>
