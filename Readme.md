@@ -46,7 +46,7 @@
 | Calendar integration for scheduling | As a stylist, I want my appointments to sync with a calendar so that I can keep track of my schedule more easily. | HIGH |
 | Admins can manage user accounts and appointments | As the admin, he/she should be able to manage user accounts and appointments in case user loses their account info or appointment time. | MODERATE |
 
-  ## Use-cases !!Create dropd down toggle
+  ## Use-cases
   <details>
 
 <summary>Our Use Cases</summary>
