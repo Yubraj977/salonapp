@@ -313,12 +313,7 @@
 
 
   ## Detailed Requirements
-  <img width="975" height="931" alt="image" src="https://github.com/user-attachments/assets/6ce2a20e-4ff5-4de9-a5d5-87f878e20c33" />
-
-  <img width="975" height="652" alt="image" src="https://github.com/user-attachments/assets/763b5d30-0fa4-4f02-bc74-891696e7f416" />
-
-
-
+ 
 
   ## How to Run
   ```bash
