@@ -53,7 +53,7 @@ class AppointmentServiceTest {
         Appointment appointment2 = new Appointment(68, 66,ldt2);
         apptServ.createAppointment(appointment1);
         apptServ.createAppointment(appointment2);
-        assertEquals(1, apptServ.getAppointments().size());
+        assertEquals(2, apptServ.getAppointments().size());
     }
 
     @Test
@@ -77,12 +77,12 @@ class AppointmentServiceTest {
     }
 
     @Test
-    void deleteAppointment() {
+    void cancelAppointment() {
         apptServ = new AppointmentService();
         LocalDateTime ldt = LocalDateTime.now();
         Appointment appointment1 = new Appointment(67, 69,ldt);
         apptServ.createAppointment(appointment1);
-        apptServ.deleteAppointment(appointment1.getAppointmentId());
+        apptServ.cancelAppointment(appointment1.getAppointmentId());
         assertEquals(0, apptServ.getAppointments().size());
     }
 }

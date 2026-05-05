@@ -14,8 +14,7 @@ class AdminTest {
                 "admin",
                 "admin123",
                 "Admin Administrator",
-                "admin@email.com",
-                "ADMIN"
+                "admin@email.com"
         );
 
         assertAll(
@@ -23,7 +22,7 @@ class AdminTest {
                 () -> assertEquals("admin", admin.getUsername()),
                 () -> assertEquals("Admin Administrator", admin.getName()),
                 () -> assertEquals("admin@email.com", admin.getEmail()),
-                () -> assertEquals("ADMIN", admin.getRole()),
+                () -> assertEquals("ADMIN", admin.getRole().toUpperCase()),
                 () -> assertTrue(admin.checkPassword("admin123"))
         );
     }

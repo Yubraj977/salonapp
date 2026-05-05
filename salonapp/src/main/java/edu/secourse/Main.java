@@ -1,9 +1,16 @@
 package edu.secourse;
 
+import edu.secourse.controller.AppointmentController;
 import edu.secourse.controller.AuthController;
 import edu.secourse.controller.UserController;
+import edu.secourse.model.Admin;
+import edu.secourse.model.Customer;
+import edu.secourse.model.Stylist;
 import edu.secourse.model.User;
+import edu.secourse.service.AppointmentService;
 import edu.secourse.service.UserService;
+import edu.secourse.session.UserSession;
+import edu.secourse.view.AppointmentView;
 import edu.secourse.view.UserView;
 
 import java.util.Scanner;
@@ -17,19 +24,33 @@ public class Main {
      */
     final static Scanner scanner = new Scanner(System.in);
 
+    static boolean islogged = false;
+    static UserController userController;
+
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
 
+
+        // Initializing service with shared repository
         UserService userService = new UserService();
+        AppointmentService appointmentService = new AppointmentService();
+
+        // Initializing views
         UserView userView = new UserView();
+        AppointmentView appointmentView = new AppointmentView(userService);
 
-        //Create default admin to control app
-        User admin = new User("admin", "admin123", "admin", "admin@email", "admin");
-        userService.createUser(admin);
+        // Initialize app data
+        initializeAppData(userService);
 
+        // Start Application
+        startSalonApp(userView, userService, appointmentService, appointmentView);
 
+    }
 
+    private static void startSalonApp(
+            UserView userView, UserService userService,
+            AppointmentService appointmentService, AppointmentView appointmentView
+    ) {
+        // Display App information
         System.out.printf("========================================\n");
         System.out.printf("Hello and welcome to SLogics Salon App!\n");
         System.out.printf("========================================\n");
@@ -41,24 +62,58 @@ public class Main {
 
             AuthController authController = new AuthController(userService, userView);
             UserController userController = new UserController(userService, userView);
+            AppointmentController appointmentController = new AppointmentController(appointmentService, appointmentView);
 
-            // User Login
-            if (starterOption == 1) {
-                boolean authenticated = false;
-                int appmgtOpt = 0;
-
-                while (!authenticated) {
-                    authenticated = authController.login();
-                    if (authenticated) {
-                        appmgtOpt = chooseAppManagement(userView, userController);
-                        authenticated = false;
-                    }
-                    if (appmgtOpt == 0){
-                        break;
-                    }
+            //exit Application
+            if (starterOption == 0) System.exit(0);
+            else if(starterOption == 1){
+                if (islogged == false){
+                    appLogin(authController, userController, appointmentController, userView);
                 }
-            }else if (starterOption == 0) {
-                System.exit(0);
+            }
+        }
+    }
+
+    private static void initializeAppData(UserService userService) {
+        //Create default admin to control app
+        User admin = new Admin("admin", "admin123", "admin", "admin@email");
+        userService.createUser(admin);
+
+        //Creating sample users
+        userService.createUser(
+                new Customer("alice", "alice123", "Alice Wonder", "alice@email.com")
+        );
+
+        userService.createUser(
+                new Customer("john", "john123", "John Wonder", "john@email.com")
+        );
+
+        userService.createUser(
+                new Stylist("Esther", "esther123", "Esther Wonder", "esther@email.com")
+        );
+    }
+
+    private static void appLogin(
+            AuthController authController,
+            UserController userController,
+            AppointmentController appointmentController,
+            UserView userView)
+    {
+
+//        boolean authenticated = false;
+        int appmgtOpt = 0;
+
+        boolean authenticated = authController.login();
+        while (authenticated) {
+            User loggedUser = UserSession.getLoggedInUser();
+            if (authenticated) {
+//                islogged = true;
+                appmgtOpt = chooseAppManagement(userView, userController, appointmentController, loggedUser);
+                authenticated = false;
+
+            }
+            if (appmgtOpt == 0){
+                break;
             }
         }
     }
@@ -87,7 +142,6 @@ public class Main {
     }
 
     private static int showStartMenu() {
-        System.out.println("\n====== Salon App Start =======");
         System.out.println("Please select an option:");
         System.out.println("1. User Login");
         System.out.println("0. Exit");
@@ -95,23 +149,26 @@ public class Main {
         return Integer.parseInt(scanner.nextLine());
     }
 
-    private static int chooseAppManagement(UserView userView, UserController userController) {
-        boolean running = true;
+    private static int chooseAppManagement(
+            UserView userView, UserController userController,
+            AppointmentController appointmentController, User loggedUser) {
 
+        boolean running = true;
         while (running) {
             try {
                 int option = showAppManagementMenu();
                 switch (option) {
                     case 1 -> {
-                        startUserManagement(userController);
-                        return 1;
+                        startUserManagement(userController, loggedUser);
+                        running = true;
                     }
                     case 2 -> {
-                        startAppointmentManagement();
-                        return 1;
+                        startAppointmentManagement(appointmentController, loggedUser);
+                        running = true;
                     }
                     case 0 -> {
-                        userView.displayMessage("Exiting user management system...\n");
+                        userView.displayMessage("Logging out ...\n");
+                        UserSession.logout();
                         running = false;
                         return 0;
                     }
@@ -128,12 +185,13 @@ public class Main {
         return 0;
     }
 
-    private static void startAppointmentManagement() {
+    private static void startAppointmentManagement(AppointmentController appointmentController, User loggedUser) {
+        appointmentController.startAppointmentManagement(loggedUser);
     }
 
 
-    private static void startUserManagement(UserController userController) {
-        userController.startUserManagement();
+    private static void startUserManagement(UserController userController, User loggedUser) {
+        userController.startUserManagement(loggedUser);
     }
 
     private static int showAppManagementMenu() {
@@ -141,7 +199,7 @@ public class Main {
         System.out.println("Please select an option:");
         System.out.println("1. User Management Menu");
         System.out.println("2. App Management Menu");
-        System.out.println("0. Exit");
+        System.out.println("0. Logout");
 
         return Integer.parseInt(scanner.nextLine());
     }

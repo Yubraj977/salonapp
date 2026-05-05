@@ -15,7 +15,7 @@ public class Admin extends User{
      * @param role     the role assigned to the user
      * @throws IllegalArgumentException if the password is null or blank
      */
-    public Admin(String username, String password, String name, String email, String role) {
-        super(username, password, name, email, role);
+    public Admin(String username, String password, String name, String email) {
+        super(username, password, name, email, "ADMIN");
     }
 }

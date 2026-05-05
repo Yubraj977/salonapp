@@ -1,5 +1,6 @@
 package edu.secourse.model;
 
+import edu.secourse.util.PasswordUtil;
 import org.mindrot.jbcrypt.BCrypt;
 import java.util.Date;
 import java.util.Objects;
@@ -76,6 +77,8 @@ public class User {
      */
     private boolean mustChangePassword;
 
+    public User(){
+    }
     /**
      * Constructs a new {@code User} with the specified attributes.
      *
@@ -150,7 +153,7 @@ public class User {
         if (password == null || password.isBlank()) {
             throw new IllegalArgumentException("Password cannot be null or blank");
         }
-        this.password = BCrypt.hashpw(password, BCrypt.gensalt());
+        this.password = PasswordUtil.hashPassword(password);
     }
 
     /**
@@ -276,6 +279,10 @@ public class User {
      */
     public boolean mustChangePassword() {
         return mustChangePassword;
+    }
+
+    public void saveUserToJson(){
+
     }
 
     @Override
