@@ -236,6 +236,7 @@ if no appointments system displays “No appointments scheduled for today”
 5.	Results:
 1.	Stylist is able to check their current and future appointments
 
+
 ----------
 
 </details>
