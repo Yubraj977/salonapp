@@ -42,6 +42,10 @@ Requirement	User Story	Importance
 •	Allow admins to manage user accounts and appointments	As the admin, he/she should be able to manage user accounts and appointments in case user loses their account info or appointment time.	MODERATE
 
   ## Use-cases !!Create dropd down toggle
+  <details>
+
+<summary>Our Use Cases</summary>
+
 -------------
 Use Cases*
 1.	Application Start:
@@ -228,6 +232,9 @@ if no appointments system displays “No appointments scheduled for today”
 1.	Stylist is able to check their current and future appointments
 
 ----------
+
+</details>
+
 
 
   ## Detailed Requirements
