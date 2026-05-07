@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Appointment {
     /**Counter for unique appointment ID's */
     private static final AtomicInteger counter = new AtomicInteger(0);
-    private final int customerId;
+    private int customerId;
     private LocalDateTime startDateTime;
 
     /**Appointment identifier */
@@ -36,6 +36,9 @@ public class Appointment {
         ACTIVE,
         CANCELED
     }
+
+    /** no argument constructor */
+    public Appointment() {}
 
     /**New Appointment constructor */
     public Appointment(int customerId, int stylistId, LocalDateTime startDateTime) {

@@ -40,6 +40,10 @@ public class AppointmentView {
         this.userService = userService;
     }
 
+    public AppointmentView() {
+
+    }
+
     /**
      * Displays the appointment management menu and retrieves the user's selected option.
      *

@@ -6,6 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="f8116680-2335-4117-9266-b2c630d7dcaa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/model/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/view/AppointmentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/view/AppointmentView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/secourse/controller/AppointmentControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/secourse/controller/AppointmentControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/secourse/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/secourse/controller/UserControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +54,7 @@
     "JUnit.UserTest.executor": "Run",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
@@ -64,9 +71,8 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.secourse.Main" />
+  <component name="RunManager">
+    <configuration name="AdminTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="salonapp" />
       <extension name="coverage">
         <pattern>
@@ -140,10 +146,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.AppointmentServiceTest" />
         <item itemvalue="JUnit.AppointmentControllerTest" />
         <item itemvalue="JUnit.UserControllerTest" />
-        <item itemvalue="JUnit.AppointmentServiceTest" />
         <item itemvalue="JUnit.AppointmentTest" />
       </list>
     </recent_temporary>
@@ -158,12 +163,14 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="96e89e9a-6a6f-49e5-a0da-88c9e876ca91" name="Changes" comment="" />
+      <changelist id="f8116680-2335-4117-9266-b2c630d7dcaa" name="Changes" comment="" />
       <created>1777408060327</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1777408060327</updated>
       <workItem from="1777408061353" duration="5575000" />
+      <workItem from="1778000169371" duration="597000" />
+      <workItem from="1778002159525" duration="6242000" />
     </task>
     <servers />
   </component>

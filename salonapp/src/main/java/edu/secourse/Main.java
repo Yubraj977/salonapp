@@ -195,7 +195,7 @@ public class Main {
     }
 
     private static int showAppManagementMenu() {
-        System.out.println("\n====== Salon App Management =======");
+        System.out.println("====== Salon App Management ======");
         System.out.println("Please select an option:");
         System.out.println("1. User Management Menu");
         System.out.println("2. App Management Menu");
