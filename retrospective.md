@@ -1,60 +1,38 @@
-# Overview
+# The Retrospective Page
 
-Reflect back on what you and your team learned and what motivates the
-group to succeed by following the instructions for the **4Ls
-Retrospective Play**.
+Try a Retro whiteboard. Designed to help you reflect and improve as a team.
 
-## Team
+## 📋 Overview
+
+Reflecting back on what our team learned and what motivates us to succeed.
+
+We used 4Ls Retrospective Play.
+
+### Team
 
 **SLogics**
 
-## Team Members
+### Team Members
 
--   @Yousif A\
--   @Alexander Alarcon\
--   @Frederick Laud Amoah-Darko\
+-   @Yousif A
+-   @Alexander Alarcon
+-   @Frederick Laud Amoah-Darko
 -   @Abdulkadir Mohamed
 
-## Date
+### Date
 
-Apr 30, 2026
+**Apr 30, 2026**
 
-## Retrospective Period
-
-*(Not specified)*
+## \### Retrospective Period
 
 ------------------------------------------------------------------------
 
-# Action Plan
+# ⚡ Action Plan
 
-  ---------------------------------------------------------------------------------------------
-  Action          Owner         Status          Action Items
-  --------------- ------------- --------------- -----------------------------------------------
-  Users/Auth      @Yousif A     Done            AuthController, UserController, Models {Admin,
-                                                Appointment, Customer, Stylist, Users},
-                                                userView, userService
-
-  Appointment     @Abdulkadir   Done            AppointmentServiceTest.java,
-  Service & Tests Mohamed                       AppointmentService.java
-
-  README / Branch @Yubraj       In Progress     Main.java, [GitHub
-  Management /    Khatri                        Repo](https://github.com/Yubraj977/salonapp),
-  Seed Data                                     Branch Management
-
-  Appointment     @Alexander    In Progress     AppointmentControllerTest.java,
-  Controller &    Alarcon                       AppointmentView.java,
-  Tests                                         AppointmentController.java
-
-  Additional      @Frederick    In Progress     *(Details not specified)*
-  Contributions   Laud                          
-                  Amoah-Darko                   
-  ---------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-# Notes
-
--   Ensure consistency in naming (e.g., `Customer` instead of
-    `costumer`)
--   Some sections were duplicated in the original document and have been
-    consolidated here
+| Action | Owner | Status | Action Items |
+|------------------|------------------|------------------|------------------|
+| Users/Auth | @Yousif A | Done | AuthController, UserController, model { Admin, Appointment, Customer, Stylist, Users }, userView, userService |
+| Appointment Service / Appointment Tests | @Abdulkadir Mohamed | Done | AppointmentServiceTest.java, AppointmentService.java |
+| Readme.md / Branch Management / Seed Data in Main Function | @Yubraj Khatri | In Progress | Main.java, Branch Management |
+| Appointment Controller and its Test | @Alexander Alarcon | In Progress | AppointmentControllerTest.java, AppointmentView.java, AppointmentController.java |
+| Additional Backend / Testing Contributions | @Frederick Laud Amoah-Darko | In Progress | Backend testing, authentication testing, GitHub Actions CI integration |
