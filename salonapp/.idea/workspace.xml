@@ -5,29 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8116680-2335-4117-9266-b2c630d7dcaa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/session/UserSession.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/util/PasswordUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/controller/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/controller/AppointmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/model/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/model/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/model/Stylist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/model/Stylist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/service/AppointmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/service/AppointmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/model/Appointment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/view/AppointmentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/view/AppointmentView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/secourse/view/UserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/secourse/view/UserView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/edu/secourse/controller/AppointmentControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/secourse/controller/AppointmentControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/edu/secourse/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/secourse/controller/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/secourse/model/AdminTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/secourse/model/AdminTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/secourse/model/CustomerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/secourse/model/CustomerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/secourse/model/StylistTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/secourse/model/StylistTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/secourse/service/AppointmentServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/secourse/service/AppointmentServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/secourse/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/secourse/service/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +44,7 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "JUnit.AdminTest.executor": "Run",
+    "JUnit.AppointmentControllerTest.executor": "Run",
     "JUnit.AppointmentServiceTest.executor": "Run",
     "JUnit.AppointmentTest.executor": "Run",
     "JUnit.CustomerTest.executor": "Run",
@@ -69,6 +54,7 @@
     "JUnit.UserTest.executor": "Run",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
@@ -85,7 +71,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.AppointmentControllerTest">
+  <component name="RunManager">
     <configuration name="AdminTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="salonapp" />
       <extension name="coverage">
@@ -163,9 +149,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppointmentServiceTest" />
         <item itemvalue="JUnit.AppointmentControllerTest" />
         <item itemvalue="JUnit.UserControllerTest" />
-        <item itemvalue="JUnit.AppointmentServiceTest" />
         <item itemvalue="JUnit.AppointmentTest" />
         <item itemvalue="JUnit.AdminTest" />
       </list>
@@ -181,12 +167,14 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="96e89e9a-6a6f-49e5-a0da-88c9e876ca91" name="Changes" comment="" />
+      <changelist id="f8116680-2335-4117-9266-b2c630d7dcaa" name="Changes" comment="" />
       <created>1777408060327</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1777408060327</updated>
       <workItem from="1777408061353" duration="5575000" />
+      <workItem from="1778000169371" duration="597000" />
+      <workItem from="1778002159525" duration="6242000" />
     </task>
     <servers />
   </component>

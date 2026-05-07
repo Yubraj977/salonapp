@@ -37,7 +37,8 @@ public class AuthController {
         if (user != null) {
             UserSession.login(user);
 //            userView.displayMessage("Logged in successfully as " + user.getRole());
-            userView.displayMessage("Welcome " + user.getName() + " (" + user.getRole() + ")");
+            userView.displayMessage("----------------------------------------------------");
+            userView.displayMessage("\nWelcome, " + user.getName() + " [" + user.getRole() + "]");
             return true;
         }else {
             userView.displayMessage("Invalid username or password");

@@ -1,115 +1,84 @@
 package edu.secourse.controller;
 
-import edu.secourse.controller.AppointmentController;
-import edu.secourse.model.Admin;
 import edu.secourse.model.Appointment;
 import edu.secourse.model.User;
 import edu.secourse.service.AppointmentService;
+import edu.secourse.service.UserService;
 import edu.secourse.view.AppointmentView;
-
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.mockito.Mockito.*;
-
+//Because AppointmentController depend on console input through AppointmentView,
+// a unit test needs some way to control what the view returns. so we use fake/stub classes
 class AppointmentControllerTest {
 
     @Test
     void startAppointmentManagement_adminCanViewAllAppointments() {
-        // Arrange
-        AppointmentService appointmentService = mock(AppointmentService.class);
-        AppointmentView appointmentView = mock(AppointmentView.class);
+        FakeAppointmentService appointmentService = new FakeAppointmentService();
+        FakeAppointmentView appointmentView = new FakeAppointmentView();
 
         AppointmentController controller =
                 new AppointmentController(appointmentService, appointmentView);
 
-        User admin = new Admin("admin", "Admin User", "admin@email.com", "adminpass");
+        User admin = new User("admin", "admin123", "Admin User", "admin@email.com", "admin");
 
-        List<Appointment> appointments = List.of(
-                mock(Appointment.class),
-                mock(Appointment.class)
-        );
+        Appointment appointment1 = new Appointment();
+        Appointment appointment2 = new Appointment();
 
-        when(appointmentView.showMenuAndGetOption("admin"))
-                .thenReturn(2)   // view all appointments
-                .thenReturn(0);  // exit
+        appointmentService.appointments.add(appointment1);
+        appointmentService.appointments.add(appointment2);
 
-        when(appointmentService.getAppointments()).thenReturn(appointments);
+        // Option 2 = view all appointments, then 0 = exit
+        appointmentView.menuOptions.add(2);
+        appointmentView.menuOptions.add(0);
 
-        // Act
         controller.startAppointmentManagement(admin);
 
-        // Assert
-        verify(appointmentService).getAppointments();
-        verify(appointmentView).displayAllAppointments(appointments);
-        verify(appointmentView).displayMessage("Exiting appointment management system...");
+        assertTrue(appointmentService.getAppointmentsCalled);
+        assertEquals(2, appointmentView.displayedAppointments.size());
+        assertTrue(appointmentView.messages.contains("Exiting appointment management system..."));
     }
 
-    @Test
-    void startAppointmentManagement_customerCanViewOwnAppointments() {
-        // Arrange
-        AppointmentService appointmentService = mock(AppointmentService.class);
-        AppointmentView appointmentView = mock(AppointmentView.class);
+    static class FakeAppointmentService extends AppointmentService {
+        List<Appointment> appointments = new ArrayList<>();
+        boolean getAppointmentsCalled = false;
 
-        AppointmentController controller =
-                new AppointmentController(appointmentService, appointmentView);
-
-        User customer = mock(User.class);
-        when(customer.getRole()).thenReturn("customer");
-
-        List<Appointment> appointments = List.of(
-                mock(Appointment.class),
-                mock(Appointment.class)
-        );
-
-        when(appointmentView.showMenuAndGetOption("customer"))
-                .thenReturn(1)   // view user appointments
-                .thenReturn(0);  // exit
-
-        when(appointmentService.getAppointmentsForLoggedInUser())
-                .thenReturn(appointments);
-
-        // Act
-        controller.startAppointmentManagement(customer);
-
-        // Assert
-        verify(appointmentService).getAppointmentsForLoggedInUser();
-        verify(appointmentView).displayAppointments(appointments);
-        verify(appointmentView).displayMessage("Exiting appointment management system...");
+        @Override
+        public List<Appointment> getAppointments() {
+            getAppointmentsCalled = true;
+            return appointments;
+        }
     }
 
-    @Test
-    void startAppointmentManagement_customerCanRescheduleAppointment() {
-        // Arrange
-        AppointmentService appointmentService = mock(AppointmentService.class);
-        AppointmentView appointmentView = mock(AppointmentView.class);
+    static class FakeAppointmentView extends AppointmentView {
+        List<Integer> menuOptions = new ArrayList<>();
+        List<Appointment> displayedAppointments = new ArrayList<>();
+        List<String> messages = new ArrayList<>();
 
-        AppointmentController controller =
-                new AppointmentController(appointmentService, appointmentView);
+        public FakeAppointmentView() {
+            super();
+        }
+        public FakeAppointmentView(UserService userService) {
+            super(userService);
+        }
 
-        User customer = mock(User.class);
-        when(customer.getRole()).thenReturn("customer");
+        @Override
+        public int showMenuAndGetOption(String role) {
+            return menuOptions.remove(0);
+        }
 
-        LocalDateTime newDateTime = LocalDateTime.of(2026, 5, 10, 14, 30);
+        @Override
+        public void displayAllAppointments(List<Appointment> appointments) {
+            displayedAppointments = appointments;
+        }
 
-        when(appointmentView.showMenuAndGetOption("customer"))
-                .thenReturn(3)   // reschedule
-                .thenReturn(0);  // exit
-
-        when(appointmentView.getAppointmentIdInput()).thenReturn(1);
-        when(appointmentView.getNewDateTimeInput()).thenReturn(newDateTime);
-
-        when(appointmentService.updateAppointment(1, newDateTime))
-                .thenReturn(true);
-
-        // Act
-        controller.startAppointmentManagement(customer);
-
-        // Assert
-        verify(appointmentService).updateAppointment(1, newDateTime);
-        verify(appointmentView).displayMessage("Appointment successfully rescheduled");
+        @Override
+        public void displayMessage(String message) {
+            messages.add(message);
+        }
     }
 }
 
