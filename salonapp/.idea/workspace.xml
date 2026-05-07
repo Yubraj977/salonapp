@@ -58,7 +58,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "fred/user-developer",
+    "git-widget-placeholder": "own-created",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/yubraj/Developer/salonapp/salonapp",
@@ -76,13 +76,10 @@
       <module name="salonapp" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.secourse.model.*" />
+          <option name="PATTERN" value="edu.secourse.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.secourse.model" />
-      <option name="MAIN_CLASS_NAME" value="edu.secourse.model.AdminTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -153,7 +150,6 @@
         <item itemvalue="JUnit.AppointmentControllerTest" />
         <item itemvalue="JUnit.UserControllerTest" />
         <item itemvalue="JUnit.AppointmentTest" />
-        <item itemvalue="JUnit.AdminTest" />
       </list>
     </recent_temporary>
   </component>
